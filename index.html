@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scary Minesweeper 💣</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="menu">
+        <h1>Are you a coward or brave? Lmao~ Pick your level~ 💋🔥</h1>
+        <button onclick="startGame('facil')">Easy</button>
+        <button onclick="startGame('dificil')">Haed</button>
+    </div>
+    <div id="game" style="display: none;">
+        <button id="voltar" onclick="showMenu()">Back to home</button>
+        <div class="grid" id="grid"></div>
+    </div>
+    <div class="jumpscare" id="jumpscare">
+        <img id="scare-image" src="" alt="I caught you">
+    </div>
+    <audio id="scream-sound" src="susto.mp3"></audio>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: black;
+    font-family: Arial, sans-serif;
+    flex-direction: column;
+    color: cyan;
+    text-align: center;
+}
+.grid {
+    display: grid;
+    gap: 2px;
+    background-color: rgba(0, 0, 50, 0.7);
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px cyan;
+}
+.cell {
+    width: 40px;
+    height: 40px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    cursor: pointer;
+    border: 1px solid cyan;
+    color: cyan;
+}
+.cell.clicked {
+    background-color: rgba(0, 255, 255, 0.3);
+}
+.jumpscare {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    justify-content: center;
+    align-items: center;
+}
+.jumpscare img {
+    width: 50%;
+    max-width: 600px;
+}
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 18px;
+    cursor: pointer;
+}
