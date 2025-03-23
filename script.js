@@ -7,6 +7,18 @@ setInterval(() => {
     audio.volume = 1.0;
 }, 500);
 
+const scareImages = [
+    "https://i.imgur.com/7eO1fjy.jpeg",
+    "https://i.imgur.com/BJltEmK.jpeg",
+    "https://i.imgur.com/RPgNDW3.jpeg",
+    "https://i.imgur.com/EiIO9Nb.jpeg",
+    "https://i.imgur.com/kdKkMI0.gif"
+    
+
+
+
+];
+
 function showMenu() {
     document.getElementById("menu").style.display = "block";
     document.getElementById("game").style.display = "none";
@@ -49,21 +61,14 @@ function generateGrid(mode) {
 }
 
 function showJumpscare() {
-    fetch('imagens/')
-    .then(response => response.text())
-    .then(html => {
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, 'text/html');
-        const images = Array.from(doc.querySelectorAll('a')).map(a => a.href).filter(href => /\.(png|jpe?g|gif)$/i.test(href));
-        const scareImage = document.getElementById("scare-image");
-        scareImage.src = images[Math.floor(Math.random() * images.length)];
-        const jumpscare = document.getElementById("jumpscare");
-        jumpscare.style.display = "flex";
-        document.getElementById("scream-sound").play();
-        document.body.classList.add("shake");
-        setTimeout(() => {
-            jumpscare.style.display = "none";
-            document.body.classList.remove("shake");
-        }, 2000);
-    });
+    const scareImage = document.getElementById("scare-image");
+    scareImage.src = scareImages[Math.floor(Math.random() * scareImages.length)];
+    const jumpscare = document.getElementById("jumpscare");
+    jumpscare.style.display = "flex";
+    document.getElementById("scream-sound").play();
+    document.body.classList.add("shake");
+    setTimeout(() => {
+        jumpscare.style.display = "none";
+        document.body.classList.remove("shake");
+    }, 2000);
 }
