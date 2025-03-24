@@ -8,12 +8,23 @@ setInterval(() => {
 }, 500);
 
 const scareImages = [
-    "https://i.imgur.com/7eO1fjy.jpeg",
+    "https://i.imgur.com/cdw9qGd.gif",
     "https://i.imgur.com/BJltEmK.jpeg",
     "https://i.imgur.com/RPgNDW3.jpeg",
     "https://i.imgur.com/EiIO9Nb.jpeg",
+    "https://i.imgur.com/a1ky0bo.gif"
     "https://i.imgur.com/kdKkMI0.gif"
 ];
+
+// Array para armazenar as imagens pré-carregadas
+const preloadedImages = [];
+
+// Pré-carrega todas as imagens assim que a página abrir
+scareImagesLinks.forEach((src) => {
+    let img = new Image();
+    img.src = src;
+    preloadedImages.push(img);
+});
 
 function showMenu() {
     document.getElementById("menu").style.display = "block";
@@ -33,19 +44,20 @@ function generateGrid(mode) {
     let cols = mode === 'facil' ? 10 : 16;
     grid.style.gridTemplateColumns = `repeat(${cols}, 40px)`;
     grid.style.gridTemplateRows = `repeat(${rows}, 40px)`;
-    
+
     const gridSize = rows * cols;
     const mineCount = mode === 'facil' ? 15 : 40;
     const minePositions = new Set();
+
     while (minePositions.size < mineCount) {
         minePositions.add(Math.floor(Math.random() * gridSize));
     }
-    
+
     for (let i = 0; i < gridSize; i++) {
         let cell = document.createElement("div");
         cell.classList.add("cell");
         cell.dataset.index = i;
-        cell.addEventListener("click", function() {
+        cell.addEventListener("click", function () {
             if (minePositions.has(parseInt(this.dataset.index))) {
                 showJumpscare();
             } else {
@@ -59,13 +71,19 @@ function generateGrid(mode) {
 
 function showJumpscare() {
     const scareImage = document.getElementById("scare-image");
-    scareImage.src = scareImages[Math.floor(Math.random() * scareImages.length)];
+
+    // Seleciona aleatoriamente uma imagem já carregada
+    const randomIndex = Math.floor(Math.random() * preloadedImages.length);
+    scareImage.src = preloadedImages[randomIndex].src;
+
     const jumpscare = document.getElementById("jumpscare");
     jumpscare.style.display = "flex";
     document.getElementById("scream-sound").play();
     document.body.classList.add("shake");
+
     setTimeout(() => {
         jumpscare.style.display = "none";
         document.body.classList.remove("shake");
     }, 2000);
 }
+
