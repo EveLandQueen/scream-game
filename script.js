@@ -8,11 +8,14 @@ setInterval(() => {
 }, 500);
 
 const scareImages = [
+    "https://i.imgur.com/K6fWMSC.gif",
     "https://i.imgur.com/cdw9qGd.gif",
-    "https://i.imgur.com/BJltEmK.jpeg",
-    "https://i.imgur.com/RPgNDW3.jpeg",
-    "https://i.imgur.com/EiIO9Nb.jpeg",
-    "https://i.imgur.com/a1ky0bo.gif"
+    "https://i.imgur.com/R0HdOSe.gif",
+    "https://i.imgur.com/I9uvPn3.gif",
+    "https://i.imgur.com/a1ky0bo.gif",
+    "https://i.imgur.com/WfAyvh6.gif",
+    "https://i.imgur.com/DSdNabu.gif",
+    "https://i.imgur.com/a1ky0bo.gif",
     "https://i.imgur.com/kdKkMI0.gif"
 ];
 
