@@ -8,6 +8,7 @@ body {
     flex-direction: column;
     color: cyan;
     text-align: center;
+    overflow: hidden;
 }
 .grid {
     display: grid;
@@ -47,9 +48,13 @@ body {
     width: 50%;
     max-width: 600px;
 }
-button {
-    padding: 10px 20px;
-    margin: 10px;
-    font-size: 18px;
-    cursor: pointer;
+.shake {
+    animation: shake 0.2s infinite;
+}
+@keyframes shake {
+    0% { transform: translate(2px, 2px); }
+    25% { transform: translate(-2px, -2px); }
+    50% { transform: translate(2px, -2px); }
+    75% { transform: translate(-2px, 2px); }
+    100% { transform: translate(2px, 2px); }
 }
