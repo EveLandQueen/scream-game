@@ -21,27 +21,20 @@ const scareImagesLinks = [
     "https://i.imgur.com/kdKkMI0.gif"
 ];
 
-// Array para armazenar as imagens pré-carregadas
-const preloadedImages = [];
-
-// Pré-carregar as imagens para evitar atraso
-scareImagesLinks.forEach((src) => {
-    let img = new Image();
-    img.src = src;
-    preloadedImages.push(img);
-});
-
+// Função para mostrar o menu novamente
 function showMenu() {
     document.getElementById("menu").style.display = "block";
     document.getElementById("game").style.display = "none";
 }
 
+// Função para iniciar o jogo com base no modo escolhido
 function startGame(mode) {
     document.getElementById("menu").style.display = "none";
     document.getElementById("game").style.display = "block";
     generateGrid(mode);
 }
 
+// Função para gerar a grade do campo minado
 function generateGrid(mode) {
     const grid = document.getElementById("grid");
     grid.innerHTML = "";
@@ -74,12 +67,13 @@ function generateGrid(mode) {
     }
 }
 
+// Função para mostrar o jumpscare
 function showJumpscare() {
     const scareImage = document.getElementById("scare-image");
 
-    // Seleciona aleatoriamente uma imagem já carregada
-    const randomIndex = Math.floor(Math.random() * preloadedImages.length);
-    scareImage.src = preloadedImages[randomIndex].src;
+    // Seleciona aleatoriamente uma imagem da lista
+    const randomIndex = Math.floor(Math.random() * scareImagesLinks.length);
+    scareImage.src = scareImagesLinks[randomIndex];
 
     const jumpscare = document.getElementById("jumpscare");
     jumpscare.style.display = "flex";
