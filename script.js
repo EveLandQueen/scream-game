@@ -1,10 +1,10 @@
 document.getElementById("scream-sound").volume = 1.0;
 const audio = document.getElementById("scream-sound");
 setInterval(() => {
+    audio.volume = 1.0;
     if (audio.muted) {
         audio.muted = false;
     }
-    audio.volume = 1.0;
 }, 500);
 
 const scareImages = [
@@ -13,16 +13,13 @@ const scareImages = [
     "https://i.imgur.com/RPgNDW3.jpeg",
     "https://i.imgur.com/EiIO9Nb.jpeg",
     "https://i.imgur.com/kdKkMI0.gif"
-    
-
-
-
 ];
 
 function showMenu() {
     document.getElementById("menu").style.display = "block";
     document.getElementById("game").style.display = "none";
 }
+
 function startGame(mode) {
     document.getElementById("menu").style.display = "none";
     document.getElementById("game").style.display = "block";
