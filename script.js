@@ -1,13 +1,15 @@
-document.getElementById("scream-sound").volume = 1.0;
 const audio = document.getElementById("scream-sound");
+
+// Impedir que o usuário abaixe o volume ou mute
 setInterval(() => {
-    audio.volume = 1.0;
     if (audio.muted) {
         audio.muted = false;
     }
+    audio.volume = 1.0;
 }, 500);
 
-const scareImages = [
+// NOVA LISTA DE IMAGENS HOSPEDADAS NO IMGUR (GIFs)
+const scareImagesLinks = [
     "https://i.imgur.com/K6fWMSC.gif",
     "https://i.imgur.com/cdw9qGd.gif",
     "https://i.imgur.com/R0HdOSe.gif",
@@ -22,7 +24,7 @@ const scareImages = [
 // Array para armazenar as imagens pré-carregadas
 const preloadedImages = [];
 
-// Pré-carrega todas as imagens assim que a página abrir
+// Pré-carregar as imagens para evitar atraso
 scareImagesLinks.forEach((src) => {
     let img = new Image();
     img.src = src;
@@ -89,4 +91,3 @@ function showJumpscare() {
         document.body.classList.remove("shake");
     }, 2000);
 }
-
